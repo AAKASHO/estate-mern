@@ -17,7 +17,7 @@ const userSchema=new mongoose.Schema({
     },
     avatar:{
         type:String,
-        default:"https://gachax.com/anime/wp-content/uploads/sites/29/2023/06/cute-anime-girl-pfp-profile-pictures-chibi.png",
+        default:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_PTHEeCUCmMQJddgc1eT36guCl2hC5v8Z1A&usqp=CAU",
         
     },
 },{timestamps:true});
