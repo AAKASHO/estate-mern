@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import {getDownloadURL, getStorage, ref, uploadBytes, uploadBytesResumable} from 'firebase/storage';
 import { app } from '../firebase';
 import { deleteUserFailure, deleteUserStart, deleteUserSuccess, signOutUserFailure, signOutUserStart, signOutUserSuccess, updateUserFailure, updateUserStart, updateUserSuccess } from '../redux/user/userSlice';
+import { Link } from 'react-router-dom';
 export default function Profile() {
   const fileRef=useRef(null);
   const {currentUser,loading,error}=useSelector((state)=>state.user);
@@ -15,11 +16,11 @@ export default function Profile() {
   const [formData,setFormData]=useState({});
   const [updateSucess,setUpdateSucess]=useState(false);
   const dispatch=useDispatch();
-  console.log(filePerc);
-  console.log(fileUploadError);
-  // console.log(error);
-  console.log(formData);
-  console.log(currentUser);
+  // console.log(filePerc);
+  // console.log(fileUploadError);
+  // // console.log(error);
+  // console.log(formData);
+  // console.log(currentUser);
 
 
   useEffect(()=>{
@@ -128,7 +129,8 @@ export default function Profile() {
         <input type="password" placeholder='password' id='password' className='border p-3 rounded-lg'  onChange={handleChange}/>
       <button disabled={loading}
        className='bg-slate-700 border p-3 rounded-lg text-white'>{loading?'loading...':'update'}</button>
-
+       <Link className='bg-green-700 text-white p-3
+       rounded-lg uppercase text-center hover:opacity-95' to={"/create-listing"}>create Listing</Link>
       </form>
       <div className='flex justify-between mt-5'>
         <span onClick={handleDeleteUser} className='text-red-700 cursor-pointer'>Delete account</span>
